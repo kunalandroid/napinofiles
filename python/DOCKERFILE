@@ -1,0 +1,13 @@
+FROM python:3.9
+
+RUN mkdir -p /usr/src/bridge
+
+WORKDIR /usr/src/bridge
+
+RUN pip install paho-mqtt pymongo
+
+COPY . /usr/src/bridge
+
+VOLUME ["/bridge"]
+
+CMD python ../bridge
